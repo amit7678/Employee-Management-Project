@@ -70,15 +70,15 @@
 
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				 <artifactId>maven-compiler-plugin</artifactId>
-                                  
-
-				 <groupId>org.eclipse.jkube</groupId>
-                                <artifactId>openshift-maven-plugin</artifactId>
-                                <version>1.17.0</version>
-				
+			 <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId> (3)
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.jkube</groupId>
+        <artifactId>openshift-maven-plugin</artifactId> (4)
+        <version>1.17.0</version>
+      
 				<configuration>
 					<excludes>
 						<exclude>
