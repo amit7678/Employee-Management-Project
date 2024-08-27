@@ -72,11 +72,11 @@
 		<plugins>
 			 <plugin>
         <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId> (3)
+        <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
       <plugin>
         <groupId>org.eclipse.jkube</groupId>
-        <artifactId>openshift-maven-plugin</artifactId> (4)
+        <artifactId>openshift-maven-plugin</artifactId> 
         <version>1.17.0</version>
       
 				<configuration>
