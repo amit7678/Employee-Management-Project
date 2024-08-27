@@ -71,7 +71,9 @@
 	<build>
 		<plugins>
 			<plugin>
-				
+				<groupId>org.springframework.boot</groupId>
+				 <artifactId>maven-compiler-plugin</artifactId>
+                                  
 
 				 <groupId>org.eclipse.jkube</groupId>
                                 <artifactId>openshift-maven-plugin</artifactId>
