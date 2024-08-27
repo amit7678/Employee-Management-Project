@@ -71,9 +71,11 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				 <artifactId>maven-compiler-plugin</artifactId>
-                                  <version>3.6.3</version>
+				
+
+				 <groupId>org.eclipse.jkube</groupId>
+                                <artifactId>openshift-maven-plugin</artifactId>
+                                <version>1.17.0</version>
 				
 				<configuration>
 					<excludes>
