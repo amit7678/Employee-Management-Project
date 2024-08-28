@@ -80,13 +80,33 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public String deleteEmployee(@PathVariable String id) {
+    public ResponseEntity<Object> deleteEmployee(@PathVariable String id) {
         logger.info("Entering deleteEmployee method for ID: {}", id);
+
+        try {
+            // Attempt to delete the employee and get the result
+            String result = empService.deleteEmployee(id);
+
+            // Check if the deletion was successful
+            if ("Success".equals(result)) {
+                logger.info("Employee with ID: {} deleted successfully", id);
+                return ResponseHandler.generateResponse(HttpStatus.OK, true, "Employee deleted successfully", null);
+            } else {
+                logger.error("Employee with ID: {} not found or could not be deleted", id);
+                return ResponseHandler.generateResponse(HttpStatus.NOT_FOUND, false, "Employee not found or could not be deleted", null);
+            }
+        } catch (Exception e) {
+            logger.error("Exception occurred while deleting employee with ID: {}: {}", id, e.getMessage());
+            return ResponseHandler.generateResponse(HttpStatus.INTERNAL_SERVER_ERROR, false, "An error occurred while processing the request", null);
+
+        }
+    }
+    // Alternate code for above method
+    /*     logger.info("Entering deleteEmployee method for ID: {}", id);
         String result = empService.deleteEmployee(id);
         logger.info("Employee with ID: {} deleted successfully", id);
         return result;
-
-    }
+*/
 
     @GetMapping("/find/{id}")
     public ResponseEntity<Object> findEmployeeById(@PathVariable String id) {
